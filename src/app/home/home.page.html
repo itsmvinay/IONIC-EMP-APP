@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-title>Test</ion-title>
+</ion-header>
+
+<ion-card [myScrollVanish]="scrollArea">
+  <div class="lang">
+    <p translate [translateParams]="{ lang: language }">Home.language</p>
+    <ion-item>
+      <ion-label translate>Language</ion-label>
+      <ion-select
+        [(ngModel)]="language"
+        (ionChange)="languageChange()"
+        [placeholder]='"Home.language" | translate'
+      >
+        <ion-select-option value="ru">Russian</ion-select-option>
+        <ion-select-option value="en">English</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <span id="chart_div" class="innerDiv"></span>
+    <div></div>
+  </div>
+</ion-card>
+
+<ion-segment size="12" size-md="12">
+  <ion-grid>
+    <ion-row class="table-header">
+      <ion-col>EMP ID</ion-col>
+      <ion-col translate [translateParams]="{ lang: language }"
+        >Home.name</ion-col
+      >
+      <ion-col translate [translateParams]="{ lang: language }"
+        >Home.gender</ion-col
+      >
+      <ion-col translate [translateParams]="{ lang: language }"
+        >Home.country</ion-col
+      >
+    </ion-row>
+  </ion-grid>
+</ion-segment>
+
+<ion-content #scrollArea scrollEvents="true">
+  <ion-grid>
+    <ion-row
+      *ngFor="let emp of employees; index as i"
+      [routerLink]="['./',emp.id]"
+    >
+      <ion-col>{{emp.id}}</ion-col>
+      <ion-col>{{ emp.name }}</ion-col>
+      <ion-col>{{ emp.gender }}</ion-col>
+      <ion-col>{{ emp.country }}</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

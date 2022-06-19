@@ -1,0 +1,10 @@
+{
+  "Home": {
+    "Employee": "Employee Details",
+    "Emp Id": "Emp Id",
+    "name": "Name",
+    "gender": "Gender",
+    "country": "Country",
+    "language": "English"
+  }
+}
